@@ -1,0 +1,4 @@
+// Copyright (c) 2022 The Stdlib Authors. License is Apache-2.0: http://www.apache.org/licenses/LICENSE-2.0
+/// <reference types="./index.d.ts" />
+import r from"https://cdn.jsdelivr.net/gh/stdlib-js/utils-define-nonenumerable-read-only-property@esm/index.mjs";var e=function(r,e,n,f,t){var i,o,u,a,d;if(i=0,r<=0)return i;if(1===n&&1===t){if((a=r%5)>0)for(d=0;d<a;d++)i+=e[d]*f[d];if(r<5)return i;for(d=a;d<r;d+=5)i+=e[d]*f[d]+e[d+1]*f[d+1]+e[d+2]*f[d+2]+e[d+3]*f[d+3]+e[d+4]*f[d+4];return i}for(o=n<0?(1-r)*n:0,u=t<0?(1-r)*t:0,d=0;d<r;d++)i+=e[o]*f[u],o+=n,u+=t;return i},n=function(r,e,n,f,t,i,o){var u,a,d,s,l;if(u=0,r<=0)return u;if(a=f,d=o,1===n&&1===i){if((s=r%5)>0)for(l=0;l<s;l++)u+=e[a]*t[d],a+=1,d+=1;if(r<5)return u;for(l=s;l<r;l+=5)u+=e[a]*t[d]+e[a+1]*t[d+1]+e[a+2]*t[d+2]+e[a+3]*t[d+3]+e[a+4]*t[d+4],a+=5,d+=5;return u}for(l=0;l<r;l++)u+=e[a]*t[d],a+=n,d+=i;return u};r(e,"ndarray",n);var f=e;export{f as default,n as ndarray};
+//# sourceMappingURL=index.mjs.map
