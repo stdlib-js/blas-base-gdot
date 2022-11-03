@@ -48,13 +48,13 @@ The [dot product][dot-product] (or scalar product) is defined as
 ## Usage
 
 ```javascript
-import gdot from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-gdot@deno/mod.js';
+import gdot from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-gdot@v0.0.8-deno/mod.js';
 ```
 
 You can also import the following named exports from the package:
 
 ```javascript
-import { ndarray } from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-gdot@deno/mod.js';
+import { ndarray } from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-gdot@v0.0.8-deno/mod.js';
 ```
 
 #### gdot( N, x, strideX, y, strideY )
@@ -170,7 +170,7 @@ import randu from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-randu@deno/
 import round from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-round@deno/mod.js';
 import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@deno/mod.js';
 import Uint8ClampedArray from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-uint8c@deno/mod.js';
-import gdot from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-gdot@deno/mod.js';
+import gdot from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-gdot@v0.0.8-deno/mod.js';
 
 var x;
 var y;
