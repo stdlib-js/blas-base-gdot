@@ -56,38 +56,30 @@ The [dot product][dot-product] (or scalar product) is defined as
 
 <!-- /.intro -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/blas-base-gdot
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm` branch][esm-url].
+-   If you are using Deno, visit the [`deno` branch][deno-url].
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd` branch][umd-url].
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
-To use in Observable,
-
 ```javascript
-gdot = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-gdot@umd/browser.js' )
-```
-
-To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
-
-```javascript
-var gdot = require( 'path/to/vendor/umd/blas-base-gdot/index.js' )
-```
-
-To include the bundle in a webpage,
-
-```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-gdot@umd/browser.js"></script>
-```
-
-If no recognized module system is present, access bundle contents via the global scope:
-
-```html
-<script type="text/javascript">
-(function () {
-    window.gdot;
-})();
-</script>
+var gdot = require( '@stdlib/blas-base-gdot' );
 ```
 
 #### gdot( N, x, strideX, y, strideY )
@@ -187,29 +179,21 @@ var z = gdot.ndarray( 3, x, 2, 1, y, -1, y.length-1 );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-base-discrete-uniform@umd/browser.js"></script>
-<script type="text/javascript">
-(function () {.factory;
-var filledarrayBy = require( '@stdlib/array-filled-by' );
+```javascript
+var discreteUniform = require( '@stdlib/random-array-discrete-uniform' );
 var gdot = require( '@stdlib/blas-base-gdot' );
 
-var x = filledarrayBy( 10, 'float64', discreteUniform( 0, 500 ) );
+var opts = {
+    'dtype': 'float64'
+};
+var x = discreteUniform( 10, 0, 500, opts );
 console.log( x );
 
-var y = filledarrayBy( x.length, 'uint8c', discreteUniform( 0, 255 ) );
+var y = discreteUniform( x.length, 0, 255, opts );
 console.log( y );
 
 var out = gdot.ndarray( x.length, x, 1, 0, y, -1, y.length-1 );
 console.log( out );
-
-})();
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -311,13 +295,13 @@ Copyright &copy; 2016-2023. The Stdlib [Authors][stdlib-authors].
 
 [mdn-typed-array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
-[@stdlib/blas/base/ddot]: https://github.com/stdlib-js/blas-base-ddot/tree/umd
+[@stdlib/blas/base/ddot]: https://github.com/stdlib-js/blas-base-ddot
 
-[@stdlib/blas/base/sdot]: https://github.com/stdlib-js/blas-base-sdot/tree/umd
+[@stdlib/blas/base/sdot]: https://github.com/stdlib-js/blas-base-sdot
 
 <!-- <related-links> -->
 
-[@stdlib/blas/gdot]: https://github.com/stdlib-js/blas-gdot/tree/umd
+[@stdlib/blas/gdot]: https://github.com/stdlib-js/blas-gdot
 
 <!-- </related-links> -->
 
