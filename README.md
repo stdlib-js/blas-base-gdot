@@ -56,38 +56,30 @@ The [dot product][dot-product] (or scalar product) is defined as
 
 <!-- /.intro -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/blas-base-gdot
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm` branch][esm-url].
+-   If you are using Deno, visit the [`deno` branch][deno-url].
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd` branch][umd-url].
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
-To use in Observable,
-
 ```javascript
-gdot = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-gdot@umd/browser.js' )
-```
-
-To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
-
-```javascript
-var gdot = require( 'path/to/vendor/umd/blas-base-gdot/index.js' )
-```
-
-To include the bundle in a webpage,
-
-```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-gdot@umd/browser.js"></script>
-```
-
-If no recognized module system is present, access bundle contents via the global scope:
-
-```html
-<script type="text/javascript">
-(function () {
-    window.gdot;
-})();
-</script>
+var gdot = require( '@stdlib/blas-base-gdot' );
 ```
 
 #### gdot( N, x, strideX, y, strideY )
@@ -113,14 +105,10 @@ The function has the following parameters:
 The `N` and stride parameters determine which elements in the strided arrays are accessed at runtime. For example, to calculate the dot product of every other value in `x` and the first `N` elements of `y` in reverse order,
 
 ```javascript
-var floor = require( '@stdlib/math-base-special-floor' );
-
 var x = [ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0 ];
 var y = [ 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 ];
 
-var N = floor( x.length / 2 );
-
-var z = gdot( N, x, 2, y, -1 );
+var z = gdot( 3, x, 2, y, -1 );
 // returns 9.0
 ```
 
@@ -130,7 +118,6 @@ Note that indexing is relative to the first index. To introduce an offset, use [
 
 ```javascript
 var Float64Array = require( '@stdlib/array-float64' );
-var floor = require( '@stdlib/math-base-special-floor' );
 
 // Initial arrays...
 var x0 = new Float64Array( [ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0 ] );
@@ -140,9 +127,7 @@ var y0 = new Float64Array( [ 7.0, 8.0, 9.0, 10.0, 11.0, 12.0 ] );
 var x1 = new Float64Array( x0.buffer, x0.BYTES_PER_ELEMENT*1 ); // start at 2nd element
 var y1 = new Float64Array( y0.buffer, y0.BYTES_PER_ELEMENT*3 ); // start at 4th element
 
-var N = floor( x0.length / 2 );
-
-var z = gdot( N, x1, -2, y1, 1 );
+var z = gdot( 3, x1, -2, y1, 1 );
 // returns 128.0
 ```
 
@@ -166,14 +151,10 @@ The function has the following additional parameters:
 While [`typed array`][mdn-typed-array] views mandate a view offset based on the underlying buffer, the offset parameters support indexing semantics based on starting indices. For example, to calculate the dot product of every other value in `x` starting from the second value with the last 3 elements in `y` in reverse order
 
 ```javascript
-var floor = require( '@stdlib/math-base-special-floor' );
-
 var x = [ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0 ];
 var y = [ 7.0, 8.0, 9.0, 10.0, 11.0, 12.0 ];
 
-var N = floor( x.length / 2 );
-
-var z = gdot.ndarray( N, x, 2, 1, y, -1, y.length-1 );
+var z = gdot.ndarray( 3, x, 2, 1, y, -1, y.length-1 );
 // returns 128.0
 ```
 
@@ -198,39 +179,19 @@ var z = gdot.ndarray( N, x, 2, 1, y, -1, y.length-1 );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-base-randu@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-round@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/array-uint8c@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-gdot@umd/browser.js"></script>
-<script type="text/javascript">
-(function () {
+```javascript
+var discreteUniform = require( '@stdlib/random-base-discrete-uniform' ).factory;
+var filledarrayBy = require( '@stdlib/array-filled-by' );
+var gdot = require( '@stdlib/blas-base-gdot' );
 
-var x;
-var y;
-var i;
-
-x = new Float64Array( 10 );
-y = new Uint8ClampedArray( 10 );
-for ( i = 0; i < x.length; i++ ) {
-    x[ i ] = round( randu()*500.0 );
-    y[ i ] = round( randu()*255.0 );
-}
+var x = filledarrayBy( 10, 'float64', discreteUniform( 0, 500 ) );
 console.log( x );
+
+var y = filledarrayBy( x.length, 'uint8c', discreteUniform( 0, 255 ) );
 console.log( y );
 
-// Compute the dot product:
-var dot = gdot.ndarray( x.length, x, 1, 0, y, -1, y.length-1 );
-console.log( dot );
-
-})();
-</script>
-</body>
-</html>
+var out = gdot.ndarray( x.length, x, 1, 0, y, -1, y.length-1 );
+console.log( out );
 ```
 
 </section>
@@ -332,13 +293,13 @@ Copyright &copy; 2016-2023. The Stdlib [Authors][stdlib-authors].
 
 [mdn-typed-array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
+[@stdlib/blas/base/ddot]: https://github.com/stdlib-js/blas-base-ddot
+
+[@stdlib/blas/base/sdot]: https://github.com/stdlib-js/blas-base-sdot
+
 <!-- <related-links> -->
 
-[@stdlib/blas/base/ddot]: https://github.com/stdlib-js/blas-base-ddot/tree/umd
-
-[@stdlib/blas/base/sdot]: https://github.com/stdlib-js/blas-base-sdot/tree/umd
-
-[@stdlib/blas/gdot]: https://github.com/stdlib-js/blas-gdot/tree/umd
+[@stdlib/blas/gdot]: https://github.com/stdlib-js/blas-gdot
 
 <!-- </related-links> -->
 
