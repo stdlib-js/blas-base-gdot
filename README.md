@@ -65,7 +65,7 @@ The [dot product][dot-product] (or scalar product) is defined as
 To use in Observable,
 
 ```javascript
-gdot = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-gdot@umd/browser.js' )
+gdot = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-gdot@v0.2.1-umd/browser.js' )
 ```
 
 To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
@@ -77,7 +77,7 @@ var gdot = require( 'path/to/vendor/umd/blas-base-gdot/index.js' )
 To include the bundle in a webpage,
 
 ```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-gdot@umd/browser.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-gdot@v0.2.1-umd/browser.js"></script>
 ```
 
 If no recognized module system is present, access bundle contents via the global scope:
@@ -192,7 +192,7 @@ var z = gdot.ndarray( 3, x, 2, 1, y, -1, y.length-1 );
 <html lang="en">
 <body>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-array-discrete-uniform@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-gdot@umd/browser.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-gdot@v0.2.1-umd/browser.js"></script>
 <script type="text/javascript">
 (function () {
 
