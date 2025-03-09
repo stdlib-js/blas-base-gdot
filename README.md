@@ -170,6 +170,7 @@ var z = gdot.ndarray( 3, x, 2, 1, y, -1, y.length-1 );
 
 -   If `N <= 0` both functions return `0.0`.
 -   `gdot()` corresponds to the [BLAS][blas] level 1 function [`ddot`][ddot] with the exception that this implementation works with any array type, not just Float64Arrays. Depending on the environment, the typed versions ([`ddot`][@stdlib/blas/base/ddot], [`sdot`][@stdlib/blas/base/sdot], etc.) are likely to be significantly more performant.
+-   Both functions support array-like objects having getter and setter accessors for array element access (e.g., [`@stdlib/array-base/accessor`][@stdlib/array/base/accessor]).
 
 </section>
 
@@ -244,7 +245,7 @@ See [LICENSE][stdlib-license].
 
 ## Copyright
 
-Copyright &copy; 2016-2024. The Stdlib [Authors][stdlib-authors].
+Copyright &copy; 2016-2025. The Stdlib [Authors][stdlib-authors].
 
 </section>
 
@@ -299,6 +300,8 @@ Copyright &copy; 2016-2024. The Stdlib [Authors][stdlib-authors].
 [mdn-array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
 
 [mdn-typed-array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
+
+[@stdlib/array/base/accessor]: https://github.com/stdlib-js/array-base-accessor
 
 [@stdlib/blas/base/ddot]: https://github.com/stdlib-js/blas-base-ddot
 

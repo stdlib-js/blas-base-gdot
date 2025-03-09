@@ -2,6 +2,51 @@
 
 > Package changelog.
 
+<section class="release" id="unreleased">
+
+## Unreleased (2025-03-09)
+
+<section class="features">
+
+### Features
+
+-   [`24ba370`](https://github.com/stdlib-js/stdlib/commit/24ba370b3ae9e9bc4aa0160f7d0e3879e62d2153) - add accessor array support to `blas/base/gdot`  [(#5878)](https://github.com/stdlib-js/stdlib/pull/5878)
+
+</section>
+
+<!-- /.features -->
+
+<section class="commits">
+
+### Commits
+
+<details>
+
+-   [`24ba370`](https://github.com/stdlib-js/stdlib/commit/24ba370b3ae9e9bc4aa0160f7d0e3879e62d2153) - **feat:** add accessor array support to `blas/base/gdot`  [(#5878)](https://github.com/stdlib-js/stdlib/pull/5878) _(by Muhammad Haris, Athan Reines)_
+
+</details>
+
+</section>
+
+<!-- /.commits -->
+
+<section class="contributors">
+
+### Contributors
+
+A total of 2 people contributed to this release. Thank you to the following contributors:
+
+-   Athan Reines
+-   Muhammad Haris
+
+</section>
+
+<!-- /.contributors -->
+
+</section>
+
+<!-- /.release -->
+
 <section class="release" id="v0.2.2">
 
 ## 0.2.2 (2024-07-27)
