@@ -2,6 +2,40 @@
 
 > Package changelog.
 
+<section class="release" id="unreleased">
+
+## Unreleased (2026-03-03)
+
+<section class="commits">
+
+### Commits
+
+<details>
+
+-   [`c8c5967`](https://github.com/stdlib-js/stdlib/commit/c8c59670058483712917ca30934bd64b54ef43cb) - **bench:** use string interpolation in `blas/base/gdot` [(#10630)](https://github.com/stdlib-js/stdlib/pull/10630) _(by Om-A-osc)_
+
+</details>
+
+</section>
+
+<!-- /.commits -->
+
+<section class="contributors">
+
+### Contributors
+
+A total of 1 person contributed to this release. Thank you to this contributor:
+
+-   Om-A-osc
+
+</section>
+
+<!-- /.contributors -->
+
+</section>
+
+<!-- /.release -->
+
 <section class="release" id="v0.3.1">
 
 ## 0.3.1 (2026-02-08)
